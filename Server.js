@@ -7,7 +7,7 @@ const menuItemsRoutes = require('./routes/MenulistRoutes');
 const itemRoutes=require('./routes/ItemsRoute')
 require('dotenv').config();
 const app = express();
-const PORT = process.env.port ||  5000;
+const port = process.env.PORT ||  5000;
 //middleware
 app.use(cors());
 app.use(bodyParser.json());
@@ -23,6 +23,6 @@ mongoose.connect(process.env.MONGO_URI, {
   .catch((err) => console.log('Error connecting to MongoDB:', err));
 
 // Start server
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
 });
