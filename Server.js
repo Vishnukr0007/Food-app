@@ -7,7 +7,7 @@ const menuItemsRoutes = require('./routes/MenulistRoutes');
 const itemRoutes=require('./routes/ItemsRoute')
 require('dotenv').config();
 const app = express();
-const PORT = process.env.port ||  3000;
+const PORT = process.env.port ||  5000;
 //middleware
 app.use(cors());
 app.use(bodyParser.json());
