@@ -10,7 +10,11 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT ||  5000;
 //middleware
-const corsOption={origin:'http://localhost:3000'};
+const corsOptions = {
+    origin: ['https://food-app-n4k3.onrender.com'], // Change this to your frontend URL
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true
+};
 app.use(cors(corsOption));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname,'frontend','build')));
