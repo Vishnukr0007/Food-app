@@ -15,7 +15,7 @@ function Menu() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/menu'); // Adjust API URL if needed
+        const response = await axios.get('https://food-app-n4k3.onrender.com/api/menu'); // Adjust API URL if needed
         const menuItems = response.data.menuItems; // Ensure backend returns menuItems array
 
         setCategories(menuItems);
@@ -46,7 +46,7 @@ function Menu() {
       try {
         setLoading(true);
         
-        const response = await axios.get(`http://localhost:5000/api/menu/${selectedMenuId}/items`);
+        const response = await axios.get(`https://food-app-n4k3.onrender.com/api/menu/${selectedMenuId}/items`);
         
         setItems(response.data.items || []);
         setError('');
