@@ -15,7 +15,7 @@ function Admenu() {
   useEffect(() => {
     const fetchMenuItems = async () => {
       try {
-        const response = await axios.get("https://food-app-n4k3.onrender.com/api/menu");
+        const response = await axios.get("https://render.com/docs/web-services#port-binding/api/menu");
         setMenuItems(response.data.menuItems); // Update state with fetched menu items
       } catch (error) {
         console.error("Error fetching menu items:", error);
