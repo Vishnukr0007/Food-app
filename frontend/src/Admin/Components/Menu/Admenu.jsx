@@ -15,7 +15,7 @@ function Admenu() {
   useEffect(() => {
     const fetchMenuItems = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/menu");
+        const response = await axios.get("https://food-app-n4k3.onrender.com/api/menu");
         setMenuItems(response.data.menuItems); // Update state with fetched menu items
       } catch (error) {
         console.error("Error fetching menu items:", error);
@@ -42,7 +42,7 @@ function Admenu() {
       if (editMode) {
         // Update menu item
         const response = await axios.put(
-          `http://localhost:5000/api/menu/${currentMenuItem._id}`,
+          `https://food-app-n4k3.onrender.com/api/menu/${currentMenuItem._id}`,
           newMenuItem,
           {
             headers: {
@@ -58,7 +58,7 @@ function Admenu() {
         );
       } else {
         // Add new menu item
-        const response = await axios.post("http://localhost:5000/api/menu", newMenuItem, {
+        const response = await axios.post("https://food-app-n4k3.onrender.com/api/menu", newMenuItem, {
           headers: {
             "Content-Type": "application/json",
           },
@@ -79,7 +79,7 @@ function Admenu() {
   // Handle delete menu item
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/menu/${id}`);
+      await axios.delete(`https://food-app-n4k3.onrender.com/api/menu/${id}`);
       setMenuItems((prevItems) => prevItems.filter((item) => item._id !== id));
     } catch (error) {
       console.error("Error deleting menu item:", error);
