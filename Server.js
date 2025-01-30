@@ -17,7 +17,7 @@ app.use(express.static(path.join(__dirname,'frontend','build')));
 app.use("/api", menuRoutes);
 app.use('/api/menu', menuItemsRoutes);
 app.use('/api',itemRoutes)
-app.get('/',(req,res)=>{
+app.get('/api',(req,res)=>{
   res.sendFile(path.join(__dirname,'frontend','build','index.html'))
 })
 mongoose.connect(process.env.MONGO_URI, {
