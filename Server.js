@@ -3,19 +3,23 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const menuRoutes = require("./routes/MenuRoutes")
+const path=require('path')
 const menuItemsRoutes = require('./routes/MenulistRoutes');
 const itemRoutes=require('./routes/ItemsRoute')
 require('dotenv').config();
 const app = express();
 const port = process.env.PORT ||  5000;
 //middleware
-app.use(cors());
+const corsOption={origin:'http://localhost:5000'};
+app.use(cors(corsOption));
 app.use(bodyParser.json());
-app.use(express.json());
+app.use(express.static(path.join(__dirname,'frontend','build')));
 app.use("/api", menuRoutes);
 app.use('/api/menu', menuItemsRoutes);
 app.use('/api',itemRoutes)
-
+app.get('/',(req,res)=>{
+  res.sendFile(path.join(__dirname,'frontend','build','index.html'))
+})
 mongoose.connect(process.env.MONGO_URI, {
   
 })
