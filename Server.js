@@ -10,7 +10,7 @@ require('dotenv').config();
 const app = express();
 const port = process.env.PORT ||  5000;
 //middleware
-const corsOption={origin:'http://localhost:5000'};
+const corsOption={origin:'http://localhost:3000'};
 app.use(cors(corsOption));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname,'frontend','build')));
