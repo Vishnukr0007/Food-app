@@ -12,7 +12,7 @@ const port = process.env.PORT || 5000;
 
 // 🔹 Update CORS Configuration
 const corsOptions = {
-    origin: ['https://your-frontend-app.com', 'http://localhost:3000'], // Change to your frontend URL
+    origin: ['https://your-frontend-app.com'], // Change to your frontend URL
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true
 };
@@ -35,8 +35,7 @@ app.get('*', (req, res) => {
 
 // 🔹 Fix MongoDB Connection
 mongoose.connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+   
     serverSelectionTimeoutMS: 5000,
 })
 .then(() => console.log('Connected to MongoDB'))
